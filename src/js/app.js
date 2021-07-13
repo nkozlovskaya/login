@@ -14,6 +14,9 @@ import {
 import {
   notify
 } from './views/notifications';
+import {
+  getNews
+} from './services/news.service';
 
 const {
   form,
@@ -48,6 +51,7 @@ async function onSubmit() {
 
   try {
     await login(inputEmail.value, inputPassword.value);
+    await getNews();
     form.reset();
     //show success notify
     notify({
